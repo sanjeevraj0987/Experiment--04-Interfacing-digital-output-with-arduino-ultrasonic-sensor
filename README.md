@@ -55,38 +55,48 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+#define echopin 9 
+#define trigpin 10
+
+long duration;
+int distance;
+
+void setup(){
+  pinMode(trigpin, OUTPUT);
+  pinMode(echopin, INPUT);
+  Serial.begin(9600);
+  
+}
+void loop(){
+  digitalWrite(trigpin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigpin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigpin,LOW);
+  duration = pulseIn(echopin,HIGH);
+  distance = duration *0.034 / 2;
+  Serial.print("distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");   
+}
+```
+##Before simulation:
+
+
+##After Simulation:
+![image](https://github.com/sanjeevraj0987/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/120698946/04513fb1-faa1-474b-a126-54e03c8250fc)
 
 
 
 
 
 
-### Distance vs measurement table 
-
-			
- 
-			
-			
-			
-
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
 
 
 
-
-
-
-
-
-### RESULTS
+### RESULTS:
+Expriment for  interface an ultrasonic pair and measure the distance in centimeters , calculate the error Executed successfully.
 
 
 
